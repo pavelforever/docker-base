@@ -18,7 +18,7 @@ set('default_stage', 'prod');
 set('deploy_path', '/app/www/project');
 set('http_user', 'root');
 
-//ЗАПОЛНИ ИМЯ ХОСТА
+//ЗАПОЛНИ ИМЯ ХОСТА, НАПРИМЕР site.com
 localhost('ИМЯ_ХОСТА')
         ->set('labels', ['stage' => 'prod']);
 
