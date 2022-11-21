@@ -5,7 +5,8 @@ require 'recipe/laravel.php';
 
 // Config
 
-set('repository', 'git@github.com:iPabro/kto-eto-zvonil.git');
+//ЗАПОЛНИ РЕПОЗИТОРИЙ
+set('repository', 'РЕПОЗИТОРИЙ');
 
 add('shared_files', ['/public/my-sitemap.xml']);
 add('shared_dirs', []);
@@ -17,7 +18,8 @@ set('default_stage', 'prod');
 set('deploy_path', '/app/www/project');
 set('http_user', 'root');
 
-localhost('kto-eto-zvonil.ru')
+//ЗАПОЛНИ ИМЯ ХОСТА
+localhost('ИМЯ_ХОСТА')
         ->set('labels', ['stage' => 'prod']);
 
 // Hosts
