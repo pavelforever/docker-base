@@ -25,6 +25,10 @@
 
 ```lxc config device add КОНТЕЙНЕР ВНЕШНИЙ_ПОРТ-22-ssh proxy listen=tcp:0.0.0.0:ВНЕШНИЙ_ПОРТ connect=tcp:127.0.0.1:22```
 
+Чтоб дать доступ по ssh, отредактируй настройки. Иди в ```vim /etc/ssh/sshd_config``` и сделай ```PasswordAuthentication yes``` и ```PermitRootLogin Yes```, перезагрузи ```systemctl restart sshd```.
+Можешь поменять пароль рута, если зашёл под ним ```passwd```. Теперь можно заходить под рутом.
+
+
 
 ## ОСНОВНЫЕ ДЕЙСТВИЯ
 
