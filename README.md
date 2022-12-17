@@ -43,6 +43,10 @@ Nginx настроен на чтение из docker-base-my/api/www/project/cur
 
 Если что-то надо изменить, идёшь в ~/docker-base-my/
 
+## Если заливаешь laravel, скорее всего понадобится запустить после клонирования проекта composer
+
+composer install --ignore-platform-reqs
+
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
 
