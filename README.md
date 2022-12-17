@@ -36,7 +36,16 @@
 
 Дальше копируешь в рабочкую папку - ```git clone ссылка_на_этот_репозиторий```.
 
-Заходишь внутрь репозитория (```cd base-docker```) и выполняешь ```make init```
+Заходишь внутрь репозитория (```cd docker-base-my```) и выполняешь ```make init```
 ## КУДА ЗАЛИВАТЬ КОНТЕНТ
 
-Nginx настроен на чтение из docker-base/api/www/project/current/public. Изменить эту настройку можно в ```~/docker-base/api/docker/common/nginx/conf.d/default.conf``` 
+Nginx настроен на чтение из docker-base-my/api/www/project/current/public. Изменить эту настройку можно в ```~/docker-base-my/api/docker/common/nginx/conf.d/default.conf```
+
+Если что-то надо изменить, идёшь в ~/docker-base-my/
+
+## Немного работы с make
+Запустить в первый раз ```make init```
+
+Если что-то изменилось в docker файле и нужно перестроить его ```make up``` - перестроится только тот докер контейнер, в котором были изменения.
+
+Если где-то изменились конфиги, нужно уже указать, какой файл надо перестроить ```docker compose build КОНТЕЙНЕР```
