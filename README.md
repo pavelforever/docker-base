@@ -39,8 +39,4 @@
 Заходишь внутрь репозитория (```cd base-docker```) и выполняешь ```make init```
 ## КУДА ЗАЛИВАТЬ КОНТЕНТ
 
-Nginx настроен на чтение из docker-base/api/www. Там сейчас лежит файл deployer-а deploy.php. 
-
-Если у проекта уже есть файл deploy.php, можешь этот удалить и в папку www заливать проект. 
-
-Если проект новый - сначала можешь залить проект в другую новую папку, например, в docker-base/api/project, потом туда закинуть deploy.php, далее www папку удаляем, а project переименовываем в www. Должно работать
+Nginx настроен на чтение из docker-base/api/www/project/current/public. Изменить эту настройку можно в ```~/docker-base/api/docker/common/nginx/conf.d/default.conf``` 
