@@ -47,6 +47,15 @@ Nginx настроен на чтение из docker-base-my/api/www/project/cur
 
 composer install --ignore-platform-reqs
 
+## Сейчас в docker используется версия php 8.1.12, но скорее всего, надо будет изменить
+
+Чтоб изменить, например, на 7.4.33, надо это сделать в 2-х файлах
+
+  - docker-base-my/api/docker/development/php-cli/Dockerfile
+  - docker-base-my/api/docker/development/php-fpm/Dockerfile
+
+Причём меняешь просто цифры. Оставь постфиксы.
+
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
 
