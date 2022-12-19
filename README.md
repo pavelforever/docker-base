@@ -45,16 +45,26 @@ Nginx настроен на чтение из docker-base-my/api/www/project/cur
 
 ## Если заливаешь laravel, скорее всего понадобится запустить после клонирования проекта composer
 
-composer install --ignore-platform-reqs
+composer install 
+если выдаст ошибки, скорее всего, в composer.json что-то изменилось и он не соответствует composer.lock.
+
+Здесь есть 2 пути:
+
+  - проигнорировать ошибки и установить то, что в composer.lock ```composer install --ignore-platform-reqs```
+  - установить всё, что в composer.json ```composer update```
+
+Если версия php стоит не та, что в composer.json, тоже будет ругаться. Надо, чтоб была та.
 
 ## Сейчас в docker используется версия php 8.1.12, но скорее всего, надо будет изменить
 
-Чтоб изменить, например, на 7.4.33, надо это сделать в 2-х файлах
+Чтоб изменить, например, на 7.4.3, надо это сделать в 2-х файлах
 
   - docker-base-my/api/docker/development/php-cli/Dockerfile
   - docker-base-my/api/docker/development/php-fpm/Dockerfile
 
 Причём меняешь просто цифры. Оставь постфиксы.
+
+Потом идёшь в корень проекта и делаешь ```make restart```
 
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
