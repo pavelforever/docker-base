@@ -75,12 +75,12 @@ composer install
   - docker-base-my/api/docker/development/php-cli/Dockerfile
   - docker-base-my/api/docker/development/php-fpm/Dockerfile
 
-Потом идёшь в корень проекта и делаешь ```make rebuild```, потом ```make restart```
+Потом идёшь в корень проекта и делаешь ```make docker-build```, потом ```make restart```
 
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
 
-Если что-то изменилось в docker файле и нужно перестроить его ```make rebuild```, потом ```make restart```.
+Если что-то изменилось в docker файле и нужно перестроить его ```make docker-build```, потом ```make restart```.
 
 ```docker compose run контейнер sh``` - войти внутрь контейнера
 
