@@ -75,16 +75,12 @@ composer install
   - docker-base-my/api/docker/development/php-cli/Dockerfile
   - docker-base-my/api/docker/development/php-fpm/Dockerfile
 
-Причём меняешь просто цифры. Оставь постфиксы.
-
-Потом идёшь в корень проекта и делаешь ```make restart```
+Потом идёшь в корень проекта и делаешь ```make rebuild```, потом ```make restart```
 
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
 
-Если что-то изменилось в docker файле и нужно перестроить его ```make up``` - перестроится только тот докер контейнер, в котором были изменения.
-
-Если где-то изменились конфиги, нужно уже указать, какой файл надо перестроить ```docker compose build КОНТЕЙНЕР``` если не сработало ```make restart```
+Если что-то изменилось в docker файле и нужно перестроить его ```make rebuild```, потом ```make restart```.
 
 ```docker compose run контейнер sh``` - войти внутрь контейнера
 
