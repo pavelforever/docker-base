@@ -1,7 +1,10 @@
 # docker-base
 > Если docker будем установливать в lxc контейнере, сначала сделай их privileged и nest 
-  >  `lxc config set kto-eto-zvonil security.privileged true`
-  > `lxc config set kto-eto-zvonil security.nesting true`
+
+  - `lxc config set КОНТЕЙНЕР security.privileged true`
+
+  - `lxc config set КОНТЕЙНЕР security.nesting true`
+  
 > Если docker будем установливать в lxc контейнере, сначала добавь внешние порты (перед этим останови контейнер ```lxc stop КОНТЕЙНЕР```). ЧТОБ БЫСТРЕЕ ДОБАВЛЯТЬ ПОРТЫ, МОЖЕШЬ В SUBLIME TEXT ВСТАВИТЬ ТЕКСТ НИЖЕ И ТАМ ЗАМЕНИТЬ `КОНТЕЙНЕР` на свой. Ну или плейбук написать в ansible.
 
 80 для nginx НЕ НУЖЕН, Т.К. ПЕРЕНАПРАВЛЕНИЕ БУДЕТ ИДТИ ИЗ КОНТЕЙНЕРА nginx НА ПОРТ 80, ТАМ НАДО ДОБАВИТЬ ХОСТ, И КОНТЕЙНЕР, ЗДЕСЬ НЕ НАДО
