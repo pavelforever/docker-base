@@ -31,7 +31,7 @@
 Чтоб дать доступ по ssh, отредактируй настройки. Иди в ```vim /etc/ssh/sshd_config``` и сделай ```PasswordAuthentication yes``` и ```PermitRootLogin Yes```, перезагрузи ```systemctl restart sshd```.
 Можешь поменять пароль рута, если зашёл под ним ```passwd```. Теперь можно заходить под рутом.
 
-## ЕСЛИ ЗАХОЧЕШЬ ПОМЕНЯТЬ ПОРТ ПРИЛОЖЕНИЕ
+## ЕСЛИ ЗАХОЧЕШЬ ПОМЕНЯТЬ ПОРТ ПРИЛОЖЕНИЯ
 
 НЕ МЕНЯЙ (РЕДИРЕКТ В LARAVEL ПЕРЕНАПРАВЛЯЕТ БЕЗ ПОРТА, КАК ИСПРАВИТЬ, ЕЩЁ НЕ НАШЁЛ!!!)
 
@@ -47,14 +47,14 @@
 
 Дальше копируешь в рабочкую папку - ```git clone ссылка_на_этот_репозиторий```.
 
-Заходишь внутрь репозитория (```cd docker-base-my```) и выполняешь ```make init```
 ## КУДА ЗАЛИВАТЬ КОНТЕНТ
 
-Nginx настроен на чтение из docker-base-my/api/www/project/current/public. Изменить эту настройку можно в ```~/docker-base-my/api/docker/common/nginx/conf.d/default.conf```
+Nginx настроен на чтение из docker-base-my/api/www/project/current/public. Изменить эту настройку можно в ```~/docker-base-my/api/docker/common/nginx/conf.d/default.conf``` . Например, для dev можно изменить на /app/www/public
 
-Если что-то надо изменить, идёшь в ~/docker-base-my/
+Заходишь внутрь репозитория (```cd ~/docker-base-my```) и выполняешь ```make init```
 
 ## Если заливаешь laravel, скорее всего понадобится запустить после клонирования проекта composer
+заходишь внутрь контейнера ```docker compose run api-php-cli bash```
 
 composer install 
 если выдаст ошибки, скорее всего, в composer.json что-то изменилось и он не соответствует composer.lock.
