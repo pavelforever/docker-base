@@ -76,6 +76,7 @@ composer install
 ## Права (permissions) при установке laravel
 
 Поскольку мы использует разные контейнеры в api-php-cli (bullseye) и в api-php-fpm (alpine), возникает проблема с правами. Т.к. нам надо установить на некоторые папки владельца (или группу) www-data, а в alpine и в bullseye это разные id пользователей (в alpine - 82, в bullseye - 33). Когда мы идём в api-php-cli (bullseye) и меняем из консоли на www-data, в контейнере api-php-fpm (alpine) пользователи становятся не www-data, а xfs. Чтоб исправить, мы так же заходим в api-php-cli (bullseye) и проставляем пользователя по id, т.е. 82
+
 Заходим внутрь контейнера ```docker compose run api-php-cli bash```
 
 ```chmod -R 775 storage bootstrap/cache```
