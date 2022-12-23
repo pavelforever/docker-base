@@ -9,6 +9,13 @@
 
 80 для nginx НЕ НУЖЕН, Т.К. ПЕРЕНАПРАВЛЕНИЕ БУДЕТ ИДТИ ИЗ КОНТЕЙНЕРА nginx НА ПОРТ 80, ТАМ НАДО ДОБАВИТЬ ХОСТ, И КОНТЕЙНЕР, ЗДЕСЬ НЕ НАДО
 
+  - Идём в nginx ```lxc exec nginx bash```
+  - ```vim /etc/nginx/conf.d/autogenerator/myconfig.ini```
+  - добавляем контейнер
+  - ```php /etc/nginx/conf.d/autogenerator/run.php```
+  - ```systemctl restart nginx```
+  - добавляем в .hosts хост и ip
+
 8080 для nginx
 
 ```lxc config device add КОНТЕЙНЕР ВНЕШНИЙ_ПОРТ-8080-nginx proxy listen=tcp:0.0.0.0:ВНЕШНИЙ_ПОРТ connect=tcp:127.0.0.1:8080```
@@ -69,6 +76,7 @@ composer install
 ## Права (permissions) при установке laravel
 
 Поскольку мы использует разные контейнеры в api-php-cli (bullseye) и в api-php-fpm (alpine), возникает проблема с правами. Т.к. нам надо установить на некоторые папки владельца (или группу) www-data, а в alpine и в bullseye это разные id пользователей (в alpine - 82, в bullseye - 33). Когда мы идём в api-php-cli (bullseye) и меняем из консоли на www-data, в контейнере api-php-fpm (alpine) пользователи становятся не www-data, а xfs. Чтоб исправить, мы так же заходим в api-php-cli (bullseye) и проставляем пользователя по id, т.е. 82
+Заходим внутрь контейнера ```docker compose run api-php-cli bash```
 
 ```chmod -R 775 storage bootstrap/cache```
 
