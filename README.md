@@ -1,4 +1,4 @@
-# docker-base
+# docker-base-my
 > Если docker будем установливать в lxc контейнере, сначала сделай их privileged и nest 
 
   - `lxc config set КОНТЕЙНЕР security.privileged true`
