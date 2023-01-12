@@ -104,6 +104,8 @@ composer install
 
 Если что-то изменилось в docker файле и нужно перестроить его ```make docker-build```, потом ```make restart```.
 
+```docker compose run -v ~/.ssh:/root/.ssh:ro CONTAINER_NAME bash``` - Чтоб прокинуть ключи ssh из хоста внутрь контейнера и запустить этот контейнер - :ro значит, что режим read only, ещё можно :rw
+
 ```docker compose run контейнер sh``` - войти внутрь контейнера
 
 ```docker compose ps``` - посмотреть список запущенных контейнеров
