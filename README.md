@@ -44,7 +44,9 @@
 
   - ~/docker-base-my/api/docker/development/php-cli/Dockerfile (7.4.33-zts-bullseye)
   - ~/docker-base-my/api/docker/development/php-fpm/Dockerfile (7.4.33-fpm-alpine3.16)
+  - 
 Искать здесь https://hub.docker.com/_/php/tags
+
 Потом идёшь в корень проекта и делаешь ```make docker-build```, потом ```make restart```
 
 ## ЕСЛИ ЗАХОЧЕШЬ ПОМЕНЯТЬ LARAVEL web ПОРТ
