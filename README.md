@@ -38,6 +38,15 @@
 Чтоб дать доступ по ssh, отредактируй настройки. Иди в ```vim /etc/ssh/sshd_config``` и сделай ```PasswordAuthentication yes``` и ```PermitRootLogin Yes```, перезагрузи ```systemctl restart sshd```.
 Можешь поменять пароль рута, если зашёл под ним ```passwd```. Теперь можно заходить под рутом.
 
+## Сейчас в docker используется версия php 8.1.12, но скорее всего, надо будет изменить
+
+Чтоб изменить, например, на 7.4.3, надо это сделать в 2-х файлах
+
+  - ~/docker-base-my/api/docker/development/php-cli/Dockerfile (7.4.33-zts-bullseye)
+  - ~/docker-base-my/api/docker/development/php-fpm/Dockerfile (7.4.33-fpm-alpine3.16)
+Искать здесь https://hub.docker.com/_/php/tags
+Потом идёшь в корень проекта и делаешь ```make docker-build```, потом ```make restart```
+
 ## ЕСЛИ ЗАХОЧЕШЬ ПОМЕНЯТЬ LARAVEL web ПОРТ
 
 НЕ МЕНЯЙ (РЕДИРЕКТ В LARAVEL ПЕРЕНАПРАВЛЯЕТ БЕЗ ПОРТА, КАК ИСПРАВИТЬ, ЕЩЁ НЕ НАШЁЛ!!!)
@@ -87,15 +96,6 @@ composer install
 
 
 Подробнее можешь почитать здесь https://gist.github.com/zdenekdrahos/53f16cfe902ff5f820a01b79e8c76a01
-
-## Сейчас в docker используется версия php 8.1.12, но скорее всего, надо будет изменить
-
-Чтоб изменить, например, на 7.4.3, надо это сделать в 2-х файлах
-
-  - docker-base-my/api/docker/development/php-cli/Dockerfile
-  - docker-base-my/api/docker/development/php-fpm/Dockerfile
-
-Потом идёшь в корень проекта и делаешь ```make docker-build```, потом ```make restart```
 
 ## Немного работы с make и docker
 Запустить в первый раз ```make init```
